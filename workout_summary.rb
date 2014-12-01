@@ -9,7 +9,7 @@ def load_workout_data(filename)
     workout = workouts.find { |wo| wo.id == row[:workout_id] }
 
     if workout.nil?
-      workout = Workout.new(date: row[:date])
+      workout = Workout.new(row[:id], row[:date])
       workouts << workout
     end
 
