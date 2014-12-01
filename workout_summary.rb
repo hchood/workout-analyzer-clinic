@@ -1,4 +1,5 @@
 require_relative 'workout'
+require 'table_print'
 require 'pry'
 require 'csv'
 
@@ -28,5 +29,5 @@ end
 
 workouts = load_workout_data('workouts.csv')
 
-
+tp workouts, :id, :date, :type
 
