@@ -1,4 +1,5 @@
 require_relative 'workout'
+require 'pry'
 require 'csv'
 
 # create an array of Workout objects
@@ -9,7 +10,7 @@ def load_workout_data(filename)
     workout = workouts.find { |wo| wo.id == row[:workout_id] }
 
     if workout.nil?
-      workout = Workout.new(row[:id], row[:date])
+      workout = Workout.new(row[:workout_id], row[:date])
       workouts << workout
     end
 
@@ -24,3 +25,8 @@ def load_workout_data(filename)
 
   workouts
 end
+
+workouts = load_workout_data('workouts.csv')
+
+
+
