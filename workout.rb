@@ -11,8 +11,8 @@ class Workout
     # if >= 50% cardio exercises, return "cardio"
     # if >= 50% strength exercises, return "strength"
     # otherwise, return "other"
-    cardio_count = exercises.count { |ex| ex[:category] == "cardio" }
-    strength_count = exercises.count { |ex| ex[:category] == "strength" }
+    cardio_count = exercises.count { |ex| ex.category == "cardio" }
+    strength_count = exercises.count { |ex| ex.category == "strength" }
 
     perc_cardio = cardio_count / exercises.count.to_f
     perc_strength = strength_count / exercises.count.to_f
@@ -30,7 +30,7 @@ class Workout
     total = 0.0
 
     exercises.each do |ex|
-      total += ex[:duration_in_min]
+      total += ex.duration_in_min
     end
 
     total
@@ -40,10 +40,10 @@ class Workout
     total = 0.0
 
     exercises.each do |ex|
-      if ex[:category] == "cardio"
-        cals_burned = ex[:duration_in_min] * 8
+      if ex.category == "cardio"
+        cals_burned = ex.duration_in_min * 8
       else
-        cals_burned = ex[:duration_in_min] * 5
+        cals_burned = ex.duration_in_min * 5
       end
 
       total += cals_burned

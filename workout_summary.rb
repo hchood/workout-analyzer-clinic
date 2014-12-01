@@ -1,4 +1,5 @@
 require_relative 'workout'
+require_relative 'exercise'
 require 'table_print'
 require 'pry'
 require 'csv'
@@ -15,12 +16,7 @@ def load_workout_data(filename)
       workouts << workout
     end
 
-    exercise = {
-      name: row[:exercise],
-      category: row[:category],
-      duration_in_min: row[:duration_in_min]
-    }
-
+    exercise = Exercise.new(row[:exercise], row[:category], row[:duration_in_min])
     workout.exercises << exercise
   end
 
