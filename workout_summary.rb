@@ -29,5 +29,5 @@ end
 
 workouts = load_workout_data('workouts.csv')
 
-tp workouts, :id, :date, :type
+tp workouts, :id, :date, :type, :duration
 

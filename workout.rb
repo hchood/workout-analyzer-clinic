@@ -25,4 +25,21 @@ class Workout
       "other"
     end
   end
+
+  def duration
+    total = 0.0
+
+    exercises.each do |ex|
+      total += ex[:duration_in_min]
+    end
+
+    total
+  end
 end
+
+
+
+
+
+
+
