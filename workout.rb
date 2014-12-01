@@ -35,6 +35,22 @@ class Workout
 
     total
   end
+
+  def calories_burned
+    total = 0.0
+
+    exercises.each do |ex|
+      if ex[:category] == "cardio"
+        cals_burned = ex[:duration_in_min] * 8
+      else
+        cals_burned = ex[:duration_in_min] * 5
+      end
+
+      total += cals_burned
+    end
+
+    total
+  end
 end
 
 
